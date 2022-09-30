@@ -6,18 +6,13 @@ interface IButtonContainerProps {
   variant: ButtonVariant;
 }
 
-const buttonVariants = {
-  primary: 'purple',
-  secondary: 'orange',
-  danger: 'red',
-  success: 'green'
-}
-
 export const ButtonContainer = styled.button<IButtonContainerProps>`
   width: 100px;
   height: 40px;
-
-  ${({ variant }) => css`
-  background-color: ${buttonVariants[variant]}
-  `}
+  border-radius: 8px;
+  border: 0;
+  margin: 9px;
+  
+  background-color : ${({ theme, variant }) => theme[variant]};
+  color: white;
 `

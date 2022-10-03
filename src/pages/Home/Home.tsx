@@ -1,5 +1,10 @@
 import { Play } from 'phosphor-react'
-import { CountdownContainer, FormContainer, HomeContainer } from './Home.styles'
+import {
+  CountdownContainer,
+  FormContainer,
+  HomeContainer,
+  Separator,
+} from './Home.styles'
 
 export const Home = () => {
   return (
@@ -18,7 +23,7 @@ export const Home = () => {
         <CountdownContainer>
           <span>0</span>
           <span>0</span>
-          <span>:</span>
+          <Separator>:</Separator>
           <span>0</span>
           <span>0</span>
         </CountdownContainer>

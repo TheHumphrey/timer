@@ -4,6 +4,7 @@ import {
   FormContainer,
   HomeContainer,
   Separator,
+  StartCountdownButton,
 } from './Home.styles'
 
 export const Home = () => {
@@ -28,10 +29,10 @@ export const Home = () => {
           <span>0</span>
         </CountdownContainer>
 
-        <button type="submit">
+        <StartCountdownButton type="submit" disabled>
           <Play size={24} />
           Começar
-        </button>
+        </StartCountdownButton>
       </form>
     </HomeContainer>
   )

@@ -76,7 +76,7 @@ export const Status = styled.span<IStatusProps>`
   gap: 0.5rem;
 
   &::before {
-    content: ' ';
+    content: '';
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 9999px;

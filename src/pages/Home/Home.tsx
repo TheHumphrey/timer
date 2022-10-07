@@ -50,12 +50,18 @@ export const Home = () => {
   const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
 
   useEffect(() => {
+    let intervavel: number
+
     if (activeCycle) {
-      setInterval(() => {
+      intervavel = setInterval(() => {
         setAmountSecondsPassed(
           differenceInSeconds(new Date(), activeCycle.startDate),
         )
       }, 1000)
+    }
+
+    return () => {
+      clearInterval(intervavel)
     }
   }, [activeCycle])
 
@@ -72,6 +78,7 @@ export const Home = () => {
 
     setClycles((state) => [...state, newCycle])
     setActiveCycleId(id)
+    setAmountSecondsPassed(0)
     reset()
   }
 

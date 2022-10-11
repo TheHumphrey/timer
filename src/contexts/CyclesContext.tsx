@@ -61,9 +61,20 @@ export const CyclesContextProvider = ({
             activeCycleId: null,
           }
         case 'MARK_CURRENT_CYCLE_AS_FINISHED':
+          return {
+            ...state,
+            cycles: state.cycles.map((cycle) => {
+              if (cycle.id === state.activeCycleId) {
+                return { ...cycle, finishedDate: new Date() }
+              } else {
+                return cycle
+              }
+            }),
+            activeCycleId: null,
+          }
+        default:
+          return state
       }
-
-      return state
     },
     {
       cycles: [],
@@ -88,16 +99,6 @@ export const CyclesContextProvider = ({
         activeCycleId,
       },
     })
-
-    // setClycles((state) =>
-    //   state.map((cycle) => {
-    //     if (cycle.id === activeCycleId) {
-    //       return { ...cycle, finishedDate: new Date() }
-    //     } else {
-    //       return cycle
-    //     }
-    //   }),
-    // )
   }
 
   const createNewCycle = (data: CreateCycleData) => {
